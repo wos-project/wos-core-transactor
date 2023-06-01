@@ -1,0 +1,22 @@
+server {
+   listen 443 ssl;
+   server_name worldos.cloud;
+
+   location /v1 {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_pass http://localhost:9082;
+   }
+
+   location /swagger {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_pass http://localhost:9082;
+   }
+}
+
+server {
+    listen 80 default_server;
+
+    server_name _;
+
+    return 301 https://$host$request_uri;
+}

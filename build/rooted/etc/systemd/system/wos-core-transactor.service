@@ -1,0 +1,18 @@
+[Unit]
+Description=WOS Core Transactor
+ConditionPathExists=/var/lib/wos-core-transactor
+After=network.target
+
+[Service]
+Type=simple
+User=mobilityapi
+Group=mobilityapi
+WorkingDirectory=/var/lib/wos-core-transactor
+ExecStart=/var/lib/wos-core-transactor/wos-core-transactor -config /var/lib/wos-core-transactor/config.yaml -log_dir /var/log/wos-core-transactor
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/var/log/wos-core-transactor/wos-core-transactor.log
+StandardError=append:/var/log/wos-core-transactor/wos-core-transactor.log
+
+[Install]
+WantedBy=multi-user.target

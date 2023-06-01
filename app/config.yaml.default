@@ -1,0 +1,26 @@
+apiVersion: v1
+database:
+  main:
+    kind: postgres
+    host: localhost
+    port: 5432
+    database: wos_dev
+    username: wos_user
+    password: insecure
+    sslmode: disable
+mode: debug
+services:
+  tx:
+    cron: "* * * * * *"
+    uri: "http://localhost:8082/transaction/queue"
+    apiKey: insecure
+chains:
+  ethereum:
+    uri: "http://127.0.0.1:7545"
+    privateWalletHexAddress: "set me" 
+    erc20ContractHexAddress: "set me"
+  near:
+    senderAccountId: "set me"
+    contractAddress: "set me"
+    gasPrice: 0.1
+

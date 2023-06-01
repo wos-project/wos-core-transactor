@@ -47,7 +47,7 @@ near view questori.testnet nft_tokens_for_owner '{"account_id": "'questori.testn
 ```Console
 near call questori.testnet nft_mint '{"token_id": "1", "receiver_id": "'questori.testnet'", "token_metadata": { "title": "Questori Stori", "description": "NFT containing media and metadata for Questori Stori", "media": "https://bafkreiabag3ztnhe5pg7js4bj6sxuvkz3sdf76cjvcuqjoidvnfjz7vwrq.ipfs.dweb.link/", "copies": 1}}' --accountId questori.testnet --deposit 0.01
 ```
-1.   optionally transfer
+11.   optionally transfer
 ```Console
 near call questori.testnet nft_transfer '{"owner_id": "questori.testnet" , "token_id": "1"}' --accountId questori.testnet --depositYocto 1
 ```
